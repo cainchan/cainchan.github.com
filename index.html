@@ -292,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/pip-cn-source/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/mybatis-spring/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CainChan">
@@ -312,7 +312,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2018/pip-cn-source/" class="post-title-link" itemprop="http://yoursite.com/index.html">pip使用国内源</a>
+                <a href="/mybatis-spring/" class="post-title-link" itemprop="http://yoursite.com/index.html">MyBatis+Spring整合</a>
               
             
           </h1>
@@ -337,7 +337,7 @@
                 
               
 
-              <time title="Created: 2018-12-20 00:43:14 / Modified: 00:43:49" itemprop="dateCreated datePublished" datetime="2018-12-20T00:43:14+08:00">2018-12-20</time>
+              <time title="Created: 2021-03-29 10:00:00 / Modified: 16:45:09" itemprop="dateCreated datePublished" datetime="2021-03-29T10:00:00+08:00">2021-03-29</time>
             
 
             
@@ -377,18 +377,50 @@
       
         
           
-            <p>对于Python开发用户来讲，PIP安装软件包是家常便饭。但国外的源下载速度实在太慢，浪费时间。而且经常出现下载后安装出错问题。所以把PIP安装源替换成国内镜像，可以大幅提升下载速度，还可以提高安装成功率。</p>
-<h4 id="国内源"><a href="#国内源" class="headerlink" title="国内源"></a>国内源</h4><ul>
-<li>清华：<a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a></li>
-<li>阿里云：<a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/</a></li>
-<li>中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple/</a></li>
-<li>华中理工大学：<a href="http://pypi.hustunique.com/" target="_blank" rel="noopener">http://pypi.hustunique.com/</a></li>
-<li>山东理工大学：<a href="http://pypi.sdutlinux.org/" target="_blank" rel="noopener">http://pypi.sdutlinux.org/</a> </li>
-<li>豆瓣：<a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a><h4 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h4>可以在使用pip的时候加参数 <code>-i https://pypi.tuna.tsinghua.edu.cn/simple</code><br>例如：<code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyspider</code> </li>
-</ul>
-<p>这样就会从清华这边的镜像去安装pyspider库</p>
-<h4 id="永久修改-一劳永逸"><a href="#永久修改-一劳永逸" class="headerlink" title="永久修改,一劳永逸"></a>永久修改,一劳永逸</h4><p>Linux下，修改 ~/.pip/pip.conf (没有就创建一个文件夹及文件。文件夹要加“.”，表示是隐藏文件夹)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">[install]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure></p>
-<p>windows下，直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini。内容同上。</p>
+            <h4 id="一-配置引入"><a href="#一-配置引入" class="headerlink" title="一.配置引入"></a>一.配置引入</h4><ol>
+<li><p>添加以下依赖到pom.xml </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--mysql驱动--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--mybatis--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--mybatis spring整合jar包--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--jdbc--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--单元测试--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>resources</code>目录下薪增<code>mybatis-config.xml</code>文件,内容如下:</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE configuration</span></span><br><span class="line"><span class="meta">        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">"development"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">"development"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">"JDBC"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"POOLED"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driver"</span> <span class="attr">value</span>=<span class="string">"com.mysql.cj.jdbc.Driver"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"jdbc:mysql://10.21.100.77:3306/mybatis?useSSL=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=UTF-8"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"root"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;password&#125;"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">environment</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">environments</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">"com/kaychen/springboot01/dao/UserMapper.xml"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>为了能正常引入mappers文件, 需要在<code>pom.xml</code>文件的<code>&lt;build&gt;</code>模块中增加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                  <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                  <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>com/kaychen/springboot01/</code>目录下创建<code>dao</code>, <code>pojo</code>, <code>controller</code>,  <code>service</code></p>
+<p><img src="C:\Users\CainChan\AppData\Roaming\Typora\typora-user-images\image-20210329161054355.png" alt="image-20210329161054355"></p>
+</li>
+<li><p>在<code>utils</code>工具类包中创建<code>MybatisUtils.java</code>工具类文件</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kaychen.springboot01.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.io.Resources;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactory;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactoryBuilder;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MybatisUtils</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span>  <span class="keyword">static</span> SqlSessionFactory sqlSessionFactory;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            String resource = <span class="string">"mybatis-config.xml"</span>;</span><br><span class="line">            InputStream inputStream = Resources.getResourceAsStream(resource);</span><br><span class="line">            sqlSessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SqlSession <span class="title">getSqlSession</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sqlSessionFactory.openSession();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>pojo</code>目录中新增<code>User.java</code>数据库实体类文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kaychen.springboot01.pojo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(<span class="keyword">int</span> id,String username, String password)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.username = username;</span><br><span class="line">        <span class="keyword">this</span>.password = password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUsername</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="6">
+<li><p>在<code>dao</code>目录中新增<code>userDao.java</code>接口类文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kaychen.springboot01.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.kaychen.springboot01.pojo.User;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">listUser</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>dao</code>目录中新增<code>UserMapper.xml</code>文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper</span></span><br><span class="line"><span class="meta">        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.kaychen.springboot01.dao.UserDao"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"listUser"</span> <span class="attr">resultType</span>=<span class="string">"com.kaychen.springboot01.pojo.User"</span>&gt;</span></span><br><span class="line">        select * from mybatis.user</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="二-junit测试"><a href="#二-junit测试" class="headerlink" title="二.junit测试"></a>二.junit测试</h4><p>1.在<code>com/kaychen/springboot01</code>目录下创建<code>dao</code>目录以及<code>UserDaoTest.java</code>文件</p>
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kaychen.springboot01.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.kaychen.springboot01.pojo.User;</span><br><span class="line"><span class="keyword">import</span> com.kaychen.springboot01.utils.MybatisUtils;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDaoTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">        SqlSession sqlSession =  MybatisUtils.getSqlSession();</span><br><span class="line">        UserDao userDao = sqlSession.getMapper(UserDao.class);</span><br><span class="line">        List&lt;User&gt; listUser = userDao.listUser();</span><br><span class="line">        <span class="keyword">for</span> (User user : listUser) &#123;</span><br><span class="line">            System.out.println(user);</span><br><span class="line">        &#125;</span><br><span class="line">        sqlSession.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="三-整合springboot"><a href="#三-整合springboot" class="headerlink" title="三. 整合springboot"></a>三. 整合springboot</h4><ol>
+<li><p>在<code>service</code>中新增<code>UserService.java</code>类文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kaychen.springboot01.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.kaychen.springboot01.dao.UserDao;</span><br><span class="line"><span class="keyword">import</span> com.kaychen.springboot01.pojo.User;</span><br><span class="line"><span class="keyword">import</span> com.kaychen.springboot01.utils.MybatisUtils;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">listUser</span><span class="params">()</span></span>&#123;</span><br><span class="line">        SqlSession sqlSession = MybatisUtils.getSqlSession();</span><br><span class="line">     UserDao userdao = sqlSession.getMapper(UserDao.class);</span><br><span class="line">        List&lt;User&gt; data = userdao.listUser();</span><br><span class="line">     <span class="keyword">return</span> data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>controller</code>目录中新增<code>UserController.java</code>类文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kaychen.springboot01.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.kaychen.springboot01.service.UserService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/api"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> Object <span class="title">listUser</span><span class="params">()</span></span>&#123;</span><br><span class="line">        UserService userService = <span class="keyword">new</span> UserService();</span><br><span class="line">     <span class="keyword">return</span> userService.listUser();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请求<code>localhost/api/hello</code>得到返回数据</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"id"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">"username"</span>: <span class="string">"king"</span>,</span><br><span class="line">        <span class="attr">"password"</span>: <span class="string">"Zhengkai2021"</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="参考文档："><a href="#参考文档：" class="headerlink" title="参考文档："></a>参考文档：</h4><ol>
+<li><a href="https://mybatis.org/mybatis-3/zh/getting-started.html" target="_blank" rel="noopener">MyBatis官方文档</a></li>
+</ol>
 
           
         
@@ -445,7 +477,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/logstash-analysis-log/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/logstash-analysis-log/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CainChan">
@@ -465,7 +497,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2018/logstash-analysis-log/" class="post-title-link" itemprop="http://yoursite.com/index.html">使用Logstash实时分析日志</a>
+                <a href="/logstash-analysis-log/" class="post-title-link" itemprop="http://yoursite.com/index.html">使用Logstash实时分析日志</a>
               
             
           </h1>
@@ -490,7 +522,7 @@
                 
               
 
-              <time title="Created: 2018-12-20 00:40:26 / Modified: 00:41:10" itemprop="dateCreated datePublished" datetime="2018-12-20T00:40:26+08:00">2018-12-20</time>
+              <time title="Created: 2018-12-20 00:40:26 / Modified: 00:55:11" itemprop="dateCreated datePublished" datetime="2018-12-20T00:40:26+08:00">2018-12-20</time>
             
 
             
@@ -602,7 +634,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/certbot-install-ssl/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/certbot-install-ssl/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CainChan">
@@ -622,7 +654,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2018/certbot-install-ssl/" class="post-title-link" itemprop="http://yoursite.com/index.html">使用Certbot安装Let's Encrypt免费SSL证书</a>
+                <a href="/certbot-install-ssl/" class="post-title-link" itemprop="http://yoursite.com/index.html">使用Certbot安装Let's Encrypt免费SSL证书</a>
               
             
           </h1>
@@ -647,7 +679,7 @@
                 
               
 
-              <time title="Created: 2018-12-20 00:37:17 / Modified: 00:38:25" itemprop="dateCreated datePublished" datetime="2018-12-20T00:37:17+08:00">2018-12-20</time>
+              <time title="Created: 2018-12-20 00:37:17 / Modified: 00:55:11" itemprop="dateCreated datePublished" datetime="2018-12-20T00:37:17+08:00">2018-12-20</time>
             
 
             
@@ -753,7 +785,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/selenium-phantomjs-auto-login-website/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/selenium-phantomjs-auto-login-website/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CainChan">
@@ -773,7 +805,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2018/selenium-phantomjs-auto-login-website/" class="post-title-link" itemprop="http://yoursite.com/index.html">selenium PhantomJS自动登录网站</a>
+                <a href="/selenium-phantomjs-auto-login-website/" class="post-title-link" itemprop="http://yoursite.com/index.html">selenium PhantomJS自动登录网站</a>
               
             
           </h1>
@@ -798,7 +830,7 @@
                 
               
 
-              <time title="Created: 2018-12-20 00:30:45 / Modified: 00:33:48" itemprop="dateCreated datePublished" datetime="2018-12-20T00:30:45+08:00">2018-12-20</time>
+              <time title="Created: 2018-12-20 00:30:45 / Modified: 00:55:11" itemprop="dateCreated datePublished" datetime="2018-12-20T00:30:45+08:00">2018-12-20</time>
             
 
             
@@ -894,7 +926,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/updrage-node-npm-version/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/updrage-node-npm-version/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CainChan">
@@ -914,7 +946,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2018/updrage-node-npm-version/" class="post-title-link" itemprop="http://yoursite.com/index.html">升级Node/Npm版本</a>
+                <a href="/updrage-node-npm-version/" class="post-title-link" itemprop="http://yoursite.com/index.html">升级Node/Npm版本</a>
               
             
           </h1>
@@ -939,7 +971,7 @@
                 
               
 
-              <time title="Created: 2018-12-20 00:19:11 / Modified: 00:26:45" itemprop="dateCreated datePublished" datetime="2018-12-20T00:19:11+08:00">2018-12-20</time>
+              <time title="Created: 2018-12-20 00:19:11 / Modified: 00:55:11" itemprop="dateCreated datePublished" datetime="2018-12-20T00:19:11+08:00">2018-12-20</time>
             
 
             
@@ -1046,7 +1078,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/elasticsearch-guide/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/elasticsearch-guide/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CainChan">
@@ -1066,7 +1098,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2018/elasticsearch-guide/" class="post-title-link" itemprop="http://yoursite.com/index.html">ElasticSearch指南</a>
+                <a href="/elasticsearch-guide/" class="post-title-link" itemprop="http://yoursite.com/index.html">ElasticSearch指南</a>
               
             
           </h1>
@@ -1108,7 +1140,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-20 00:10:11" itemprop="dateModified" datetime="2018-12-20T00:10:11+08:00">2018-12-20</time>
+                <time title="Modified: 2018-12-20 00:55:11" itemprop="dateModified" datetime="2018-12-20T00:55:11+08:00">2018-12-20</time>
               
             
           </span>
@@ -1238,7 +1270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/deploy-shadowsocks/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/deploy-shadowsocks/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CainChan">
@@ -1258,7 +1290,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2018/deploy-shadowsocks/" class="post-title-link" itemprop="http://yoursite.com/index.html">Ubuntu18.04部署Shadowsocks</a>
+                <a href="/deploy-shadowsocks/" class="post-title-link" itemprop="http://yoursite.com/index.html">Ubuntu18.04部署Shadowsocks</a>
               
             
           </h1>
@@ -1300,7 +1332,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-20 00:33:57" itemprop="dateModified" datetime="2018-12-20T00:33:57+08:00">2018-12-20</time>
+                <time title="Modified: 2018-12-20 00:55:11" itemprop="dateModified" datetime="2018-12-20T00:55:11+08:00">2018-12-20</time>
               
             
           </span>
@@ -1428,7 +1460,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/order-181220/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/order-181220/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CainChan">
@@ -1448,7 +1480,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2018/order-181220/" class="post-title-link" itemprop="http://yoursite.com/index.html">订单入职过保逻辑</a>
+                <a href="/order-181220/" class="post-title-link" itemprop="http://yoursite.com/index.html">订单入职过保逻辑</a>
               
             
           </h1>
@@ -1490,7 +1522,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-20 00:17:17" itemprop="dateModified" datetime="2018-12-20T00:17:17+08:00">2018-12-20</time>
+                <time title="Modified: 2018-12-20 00:55:11" itemprop="dateModified" datetime="2018-12-20T00:55:11+08:00">2018-12-20</time>
               
             
           </span>
@@ -1625,7 +1657,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/mysql-guide/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/pip-cn-source/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CainChan">
@@ -1645,7 +1677,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2016/mysql-guide/" class="post-title-link" itemprop="http://yoursite.com/index.html">mysql操作指南</a>
+                <a href="/pip-cn-source/" class="post-title-link" itemprop="http://yoursite.com/index.html">pip使用国内源</a>
               
             
           </h1>
@@ -1670,7 +1702,7 @@
                 
               
 
-              <time title="Created: 2016-12-19 21:22:29" itemprop="dateCreated datePublished" datetime="2016-12-19T21:22:29+08:00">2016-12-19</time>
+              <time title="Created: 2018-02-20 00:43:14" itemprop="dateCreated datePublished" datetime="2018-02-20T00:43:14+08:00">2018-02-20</time>
             
 
             
@@ -1687,7 +1719,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-20 00:34:15" itemprop="dateModified" datetime="2018-12-20T00:34:15+08:00">2018-12-20</time>
+                <time title="Modified: 2018-12-20 23:43:47" itemprop="dateModified" datetime="2018-12-20T23:43:47+08:00">2018-12-20</time>
               
             
           </span>
@@ -1722,19 +1754,19 @@
       
         
           
-            <h4 id="一、Mysql修改密码"><a href="#一、Mysql修改密码" class="headerlink" title="一、Mysql修改密码"></a>一、Mysql修改密码</h4><h6 id="知道原密码"><a href="#知道原密码" class="headerlink" title="知道原密码"></a>知道原密码</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u用户名 -p原密码 password 新密码</span><br></pre></td></tr></table></figure>
-<h6 id="不知道原密码"><a href="#不知道原密码" class="headerlink" title="不知道原密码"></a>不知道原密码</h6><p>关闭数据库并以跳过授权表方式启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld_safe --skip-grant-tables &amp;</span><br></pre></td></tr></table></figure></p>
-<p>启动之后进入数据库执行更新SQL<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> mysql.user <span class="keyword">SET</span> <span class="keyword">password</span>=<span class="keyword">PASSWORD</span>(<span class="string">'新密码'</span>) <span class="keyword">WHERE</span> <span class="keyword">User</span>=<span class="string">'root'</span>;</span><br></pre></td></tr></table></figure></p>
-<h4 id="二、Mysql授权"><a href="#二、Mysql授权" class="headerlink" title="二、Mysql授权"></a>二、Mysql授权</h4><h6 id="1-远程授权"><a href="#1-远程授权" class="headerlink" title="1.远程授权"></a>1.远程授权</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> all <span class="keyword">on</span> *.* <span class="keyword">to</span> root@<span class="string">'%'</span><span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'password'</span>;</span><br></pre></td></tr></table></figure>
-<h6 id="2-查看授权"><a href="#2-查看授权" class="headerlink" title="2.查看授权"></a>2.查看授权</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">grants</span> <span class="keyword">form</span> root@<span class="string">'10.1.10.%'</span></span><br></pre></td></tr></table></figure>
-<h6 id="3-删除授权"><a href="#3-删除授权" class="headerlink" title="3.删除授权"></a>3.删除授权</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">revoke</span> all <span class="keyword">on</span> *.* <span class="keyword">from</span> root@<span class="string">'%'</span>;</span><br></pre></td></tr></table></figure>
-<h6 id="4-刷新授权"><a href="#4-刷新授权" class="headerlink" title="4.刷新授权"></a>4.刷新授权</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
-<h6 id="5-查看账号"><a href="#5-查看账号" class="headerlink" title="5.查看账号"></a>5.查看账号</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> Db,Host <span class="keyword">from</span> mysql.db;</span><br></pre></td></tr></table></figure>
-<h6 id="6-查看当前账号"><a href="#6-查看当前账号" class="headerlink" title="6.查看当前账号"></a>6.查看当前账号</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>();</span><br></pre></td></tr></table></figure>
-<h6 id="7-根据条件删除账号"><a href="#7-根据条件删除账号" class="headerlink" title="7.根据条件删除账号"></a>7.根据条件删除账号</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> mysql.db <span class="keyword">where</span> Host=<span class="string">"10.1.0.%"</span>;</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> mysql.db <span class="keyword">where</span> Db=<span class="string">"dx7db_game01"</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="三、Mysql日志"><a href="#三、Mysql日志" class="headerlink" title="三、Mysql日志"></a>三、Mysql日志</h4><h6 id="1-查看binlog列表"><a href="#1-查看binlog列表" class="headerlink" title="1.查看binlog列表"></a>1.查看binlog列表</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">master</span> <span class="keyword">logs</span>;</span><br></pre></td></tr></table></figure>
-<h6 id="2-按名称来删除binlog"><a href="#2-按名称来删除binlog" class="headerlink" title="2.按名称来删除binlog"></a>2.按名称来删除binlog</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">purge</span> <span class="keyword">master</span> <span class="keyword">logs</span> <span class="keyword">to</span> <span class="string">'mysql-bin.001970'</span>;</span><br></pre></td></tr></table></figure>
-<h6 id="3-按时间来删除binlog"><a href="#3-按时间来删除binlog" class="headerlink" title="3.按时间来删除binlog"></a>3.按时间来删除binlog</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">purge</span> <span class="keyword">master</span> <span class="keyword">logs</span> <span class="keyword">before</span> <span class="string">'2016-07-01 17:36:55'</span>;</span><br></pre></td></tr></table></figure>
+            <p>对于Python开发用户来讲，PIP安装软件包是家常便饭。但国外的源下载速度实在太慢，浪费时间。而且经常出现下载后安装出错问题。所以把PIP安装源替换成国内镜像，可以大幅提升下载速度，还可以提高安装成功率。</p>
+<h4 id="国内源"><a href="#国内源" class="headerlink" title="国内源"></a>国内源</h4><ul>
+<li>清华：<a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a></li>
+<li>阿里云：<a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/</a></li>
+<li>中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple/</a></li>
+<li>华中理工大学：<a href="http://pypi.hustunique.com/" target="_blank" rel="noopener">http://pypi.hustunique.com/</a></li>
+<li>山东理工大学：<a href="http://pypi.sdutlinux.org/" target="_blank" rel="noopener">http://pypi.sdutlinux.org/</a> </li>
+<li>豆瓣：<a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a><h4 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h4>可以在使用pip的时候加参数 <code>-i https://pypi.tuna.tsinghua.edu.cn/simple</code><br>例如：<code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyspider</code> </li>
+</ul>
+<p>这样就会从清华这边的镜像去安装pyspider库</p>
+<h4 id="永久修改-一劳永逸"><a href="#永久修改-一劳永逸" class="headerlink" title="永久修改,一劳永逸"></a>永久修改,一劳永逸</h4><p>Linux下，修改 ~/.pip/pip.conf (没有就创建一个文件夹及文件。文件夹要加“.”，表示是隐藏文件夹)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">[install]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure></p>
+<p>windows下，直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini。内容同上。</p>
+
           
         
       
@@ -1790,7 +1822,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/php-post/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/iptables-guide/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CainChan">
@@ -1810,7 +1842,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2016/php-post/" class="post-title-link" itemprop="http://yoursite.com/index.html">PHP POST提交数据</a>
+                <a href="/iptables-guide/" class="post-title-link" itemprop="http://yoursite.com/index.html">iptables笔记</a>
               
             
           </h1>
@@ -1835,7 +1867,7 @@
                 
               
 
-              <time title="Created: 2016-12-19 21:21:06" itemprop="dateCreated datePublished" datetime="2016-12-19T21:21:06+08:00">2016-12-19</time>
+              <time title="Created: 2018-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-01T00:00:00+08:00">2018-01-01</time>
             
 
             
@@ -1852,7 +1884,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-20 00:34:23" itemprop="dateModified" datetime="2018-12-20T00:34:23+08:00">2018-12-20</time>
+                <time title="Modified: 2018-12-20 23:43:47" itemprop="dateModified" datetime="2018-12-20T23:43:47+08:00">2018-12-20</time>
               
             
           </span>
@@ -1887,8 +1919,7 @@
       
         
           
-            <h4 id="1-封装curl方法"><a href="#1-封装curl方法" class="headerlink" title="1.封装curl方法:"></a>1.封装curl方法:</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curl</span><span class="params">($url,$post_data)</span></span>&#123;</span><br><span class="line">        $curl = curl_init(); </span><br><span class="line">        curl_setopt($curl, CURLOPT_URL, $url); </span><br><span class="line">        curl_setopt($curl, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>); </span><br><span class="line">        curl_setopt($curl, CURLOPT_POST, <span class="number">1</span>);<span class="comment">//post提交方式</span></span><br><span class="line">        curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);</span><br><span class="line">        $data = curl_exec($curl);</span><br><span class="line">        <span class="keyword">return</span> $data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-使用方法"><a href="#2-使用方法" class="headerlink" title="2.使用方法:"></a>2.使用方法:</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$url = <span class="string">'http://www.kaychen.cn/test'</span>;</span><br><span class="line">$post_data = <span class="keyword">array</span>(</span><br><span class="line">        <span class="string">'timestamp'</span>=&gt;time(),</span><br><span class="line">        <span class="string">'signature'</span>=&gt;$signature,</span><br><span class="line">        <span class="string">'user_id'</span>=&gt;<span class="number">1</span>,</span><br><span class="line">);</span><br><span class="line">$data = curl($url,$post_data);</span><br></pre></td></tr></table></figure>
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">iptables -P INPUT ACCEPT/DROP</span><br><span class="line">iptables -P OUTPUT ACCEPT/DROP</span><br><span class="line">iptables -P FORWARD ACCEPT/DROP</span><br><span class="line"></span><br><span class="line">iptables -F <span class="comment">#清除预设表filter中的所有规则链的规则</span></span><br><span class="line">iptables -X <span class="comment">#清除预设表filter中使用者自定链中的规则</span></span><br><span class="line">iptables -Z <span class="comment">#清除预设表filter中使用者自定链中的规则</span></span><br><span class="line">iptables -L -n <span class="comment">#查看</span></span><br><span class="line">iptables-save  <span class="comment">#预览规则内容</span></span><br><span class="line">service iptables save <span class="comment">#保存到默认文件</span></span><br><span class="line">service iptables restart <span class="comment">#重启</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#接纳属於现存及相关连接的压缩</span></span><br><span class="line">iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT</span><br><span class="line"><span class="comment">#允许icmp包通过,也就是允许ping</span></span><br><span class="line">iptables -A INPUT -p icmp -j ACCEPT</span><br><span class="line"><span class="comment">#允许loopback(不然会导致DNS无法正常关闭等问题)</span></span><br><span class="line">iptables -A INPUT -i lo -j ACCEPT</span><br><span class="line"><span class="comment">#添加必要端口</span></span><br><span class="line">iptables -A INPUT -s 192.168.0.0/16 -p tcp --dport 22 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p tcp --dport 80 -j ACCEPT</span><br><span class="line">iptables -A INPUT -j REJECT <span class="comment">#拒绝其他</span></span><br><span class="line">iptables -A FORWARD -j REJECT <span class="comment">#拒绝转发</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">iptables -L --line-numbers <span class="comment">#显示行号</span></span><br><span class="line">iptables -D INPUT 8 <span class="comment">#删除INPUT的第8条规则</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -1934,7 +1965,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1977,7 +2008,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2031,7 +2062,49 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
@@ -2070,7 +2143,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
